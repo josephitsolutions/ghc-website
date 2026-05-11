@@ -4,10 +4,13 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const SERVICES = [
-  "Signature Glow Reset",
-  "Move-In / Move-Out Shine",
-  "Recurring Sparkle Care",
-  "Office Glow Service",
+  "Standard",
+  "Deep",
+  "Move In",
+  "Move Out",
+  "Post Construction",
+  "AirBnB",
+  "Commercial",
 ] as const;
 
 export function ContactForm() {

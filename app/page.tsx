@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { CinematicHero } from "@/components/home/CinematicHero";
 import { FeaturedPortfolioCarousel } from "@/components/home/FeaturedPortfolioCarousel";
-import { SignatureTestimonials } from "@/components/home/SignatureTestimonials";
 import { GooglePlacesInsights } from "@/components/google/GooglePlacesInsights";
 import { LightboxImage } from "@/components/media/ImageLightbox";
 import { Reveal } from "@/components/motion/Reveal";
@@ -64,7 +63,7 @@ export default function HomePage() {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="glass-panel relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+          <div className="glass-panel relative aspect-[4/5] min-h-[240px] w-full overflow-hidden rounded-[2rem] sm:min-h-[280px]">
             <LightboxImage
               src="/assets/images/hero-hallway.jpg"
               alt="Premium hallway cleaning cart"
@@ -76,10 +75,10 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
           <Reveal>
             <article
-              className="glass-panel flex flex-col gap-4 p-8"
+              className="glass-panel flex h-full min-h-[260px] flex-col justify-between gap-4 p-8"
               id="googleRatingCard"
             >
               <div
@@ -117,15 +116,16 @@ export default function HomePage() {
             </article>
           </Reveal>
           <Reveal delay={0.05}>
-            <article className="glass-panel flex flex-col justify-center gap-3 p-8">
-              <p className="font-serif text-5xl text-accent">48h</p>
+            <article className="glass-panel flex h-full min-h-[260px] flex-col justify-between gap-3 p-8">
+              <p className="font-serif text-4xl text-accent sm:text-5xl">5 min</p>
               <p className="text-sm leading-relaxed text-ink-muted">
-                Fast response for inquiries and scheduling support.
+                We respond within five minutes during office hours — scheduling
+                support when you need it.
               </p>
             </article>
           </Reveal>
           <Reveal delay={0.1}>
-            <article className="glass-panel flex flex-col justify-center gap-3 p-8">
+            <article className="glass-panel flex h-full min-h-[260px] flex-col justify-between gap-3 p-8">
               <p className="font-serif text-5xl text-accent">100%</p>
               <p className="text-sm leading-relaxed text-ink-muted">
                 Mobile-optimized scheduling, forms, and support pages.
@@ -149,8 +149,6 @@ export default function HomePage() {
           <FeaturedPortfolioCarousel />
         </div>
       </section>
-
-      <SignatureTestimonials />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <Reveal>

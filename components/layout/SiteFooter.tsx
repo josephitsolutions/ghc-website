@@ -39,23 +39,21 @@ export function SiteFooter() {
         </section>
 
         <section className="space-y-4 rounded-3xl border border-white/40 bg-white/40 p-6 text-center shadow-glass backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:shadow-glass-dark">
-          <p className="font-serif text-base text-ink">Crafted for distinction.</p>
-          <p className="text-xs uppercase tracking-[0.35em] text-ink-subtle">
-            Digital presence
-          </p>
+          <p className="font-medium text-ink">Do you like this website?</p>
+          <p className="text-sm text-ink-muted">Click the logo to get yours!</p>
           <a
             href={JITS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex justify-center"
+            className="inline-flex justify-center pt-1"
             title="Joseph IT Solutions"
           >
             <Image
               src="/assets/images/JLit.png"
               alt="JL IT — website design"
-              width={280}
-              height={120}
-              className="h-auto max-w-[220px] opacity-90 transition-opacity hover:opacity-100"
+              width={200}
+              height={86}
+              className="h-auto max-w-[168px] opacity-90 transition-opacity hover:opacity-100 sm:max-w-[180px]"
             />
           </a>
         </section>

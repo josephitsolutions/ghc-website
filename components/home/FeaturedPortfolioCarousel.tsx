@@ -56,16 +56,17 @@ export function FeaturedPortfolioCarousel() {
         >
           {slides.map((slide, slideIdx) => (
             <div key={slideIdx} className="w-full shrink-0">
-              <div className="grid gap-6 md:grid-cols-3">
+              <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
                 {slide.map((img) => (
                   <article
                     key={img.src}
-                    className="glass-panel relative aspect-[4/5] overflow-hidden"
+                    className="glass-panel relative flex aspect-[4/5] min-h-[200px] w-full overflow-hidden sm:min-h-[240px]"
                   >
                     <LightboxImage
                       src={img.src}
                       alt={img.alt}
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      className="min-h-0 flex-1"
                     />
                   </article>
                 ))}

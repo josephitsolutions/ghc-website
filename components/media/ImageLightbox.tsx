@@ -96,18 +96,26 @@ export function LightboxImage({
   className,
   sizes,
   priority,
+  objectFit = "contain",
 }: {
   src: string;
   alt: string;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** `contain` shows the full image inside the frame; `cover` fills and may crop. */
+  objectFit?: "contain" | "cover";
 }) {
+  const imgClass =
+    objectFit === "cover"
+      ? "object-cover transition duration-700 ease-luxury group-hover:scale-[1.02]"
+      : "object-contain transition duration-700 ease-luxury group-hover:scale-[1.01]";
+
   return (
     <button
       type="button"
       className={[
-        "group relative block h-full w-full overflow-hidden rounded-[inherit] text-left",
+        "group relative block h-full w-full min-h-0 overflow-hidden rounded-[inherit] bg-black/[0.06] text-left dark:bg-white/[0.06]",
         className,
       ].join(" ")}
       onClick={() =>
@@ -122,11 +130,11 @@ export function LightboxImage({
         alt={alt}
         fill
         sizes={sizes}
-        className="object-cover transition duration-700 ease-luxury group-hover:scale-[1.03]"
+        className={imgClass}
         priority={priority}
         unoptimized={src.startsWith("http")}
       />
-      <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+      <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
     </button>
   );
 }

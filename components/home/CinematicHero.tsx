@@ -115,9 +115,9 @@ export function CinematicHero() {
         <p className="max-w-3xl font-serif text-2xl leading-snug text-white sm:text-3xl md:text-4xl">
           {SENTENCES.join(" ")}
         </p>
-        <p className="mt-10 font-script text-4xl text-white sm:text-5xl">
-          {BRAND}
-        </p>
+        <div className="mt-10 rounded-3xl bg-[#0a0c10]/90 px-8 py-8 shadow-2xl ring-1 ring-white/15 backdrop-blur-md sm:px-10 sm:py-10">
+          <p className="font-script text-4xl text-white sm:text-5xl">{BRAND}</p>
+        </div>
       </div>
     );
   }, [reduceMotion]);
@@ -167,7 +167,7 @@ export function CinematicHero() {
 
         {phase !== "intro" ? (
           <motion.div
-            className="mt-8 flex flex-col items-center gap-8"
+            className="mt-8 flex flex-col items-center gap-8 rounded-3xl bg-[#0a0c10]/90 px-6 py-9 shadow-2xl ring-1 ring-white/15 backdrop-blur-xl sm:px-10 sm:py-11"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9 }}
