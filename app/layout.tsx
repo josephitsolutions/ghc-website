@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Cormorant_Garamond,
-  Great_Vibes,
-  Inter,
-} from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import Script from "next/script";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -11,12 +7,6 @@ import { ImageLightboxProvider } from "@/components/media/ImageLightbox";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { THEME_STORAGE_KEY } from "@/lib/constants";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -76,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${cormorant.variable} ${greatVibes.variable}`}
+      className={`${cormorant.variable} ${greatVibes.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen">

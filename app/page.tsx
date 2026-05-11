@@ -105,9 +105,7 @@ export default function HomePage() {
               </div>
               <p className="font-serif text-2xl text-ink">
                 <span id="googleRatingValue">5.0</span>{" "}
-                <span className="text-base font-sans text-ink-muted">
-                  from Google
-                </span>
+                <span className="text-base text-ink-muted">from Google</span>
               </p>
               <p className="text-sm leading-relaxed text-ink-muted">
                 Luxury-level quality controls and service consistency — verified

@@ -22,6 +22,10 @@ const SENTENCES = [
 
 const BRAND = "Glowing Home Cleaners";
 
+/** Full-viewport stained-glass panel (not flat black). */
+const STAINED_GLASS_PANEL =
+  "border border-white/20 bg-gradient-to-br from-slate-900/50 via-slate-800/35 to-indigo-950/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(0,0,0,0.15),0_0_100px_rgba(15,23,42,0.4)] backdrop-blur-3xl backdrop-saturate-150 dark:from-slate-950/60 dark:via-slate-900/45 dark:to-indigo-950/55";
+
 export function CinematicHero() {
   const reduceMotion = useReducedMotion();
   const uid = useId();
@@ -100,7 +104,7 @@ export function CinematicHero() {
   const reducedBlock = useMemo(() => {
     if (!reduceMotion) return null;
     return (
-      <div className="flex min-h-[100svh] flex-col items-center justify-center px-6 text-center">
+      <div className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 py-16 text-center">
         <div className="absolute inset-0 -z-10">
           <Image
             src={HERO_BACKGROUNDS[0]!}
@@ -115,8 +119,12 @@ export function CinematicHero() {
         <p className="max-w-3xl font-serif text-2xl leading-snug text-white sm:text-3xl md:text-4xl">
           {SENTENCES.join(" ")}
         </p>
-        <div className="mt-10 rounded-3xl bg-[#0a0c10]/90 px-8 py-8 shadow-2xl ring-1 ring-white/15 backdrop-blur-md sm:px-10 sm:py-10">
-          <p className="font-script text-4xl text-white sm:text-5xl">{BRAND}</p>
+        <div
+          className={`mt-10 w-[clamp(80vw,calc(100vw-2rem),96rem)] max-w-full rounded-3xl px-6 py-10 sm:px-12 sm:py-12 ${STAINED_GLASS_PANEL}`}
+        >
+          <p className="w-full text-center font-script text-[clamp(2.5rem,10vw,5.5rem)] leading-tight text-white">
+            {BRAND}
+          </p>
         </div>
       </div>
     );
@@ -151,8 +159,8 @@ export function CinematicHero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_55%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_60%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pb-28 pt-32 text-center sm:pb-32">
-        {phase === "intro" ? (
+      {phase === "intro" ? (
+        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pb-28 pt-32 text-center sm:pb-32">
           <motion.p
             role="status"
             aria-live="polite"
@@ -163,15 +171,20 @@ export function CinematicHero() {
           >
             {SENTENCES[lineIndex]}
           </motion.p>
-        ) : null}
+        </div>
+      ) : null}
 
-        {phase !== "intro" ? (
-          <motion.div
-            className="mt-8 flex flex-col items-center gap-8 rounded-3xl bg-[#0a0c10]/90 px-6 py-9 shadow-2xl ring-1 ring-white/15 backdrop-blur-xl sm:px-10 sm:py-11"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.9 }}
-          >
+      {phase !== "intro" ? (
+        <motion.div
+          className={`fixed inset-0 z-30 flex flex-col items-center justify-center px-3 py-10 sm:px-6 sm:py-14 ${STAINED_GLASS_PANEL}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
+          aria-hidden
+        >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,255,255,0.12),transparent_50%),radial-gradient(ellipse_at_70%_80%,rgba(99,102,241,0.08),transparent_45%)]" />
+
+          <div className="relative z-10 flex w-[clamp(80vw,calc(100vw-1.5rem),120rem)] max-w-[calc(100vw-0.75rem)] flex-col items-center gap-10 sm:gap-12">
             <SignatureWordmark phase={phase} />
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -180,14 +193,13 @@ export function CinematicHero() {
                 y: phase === "done" ? 0 : 10,
               }}
               transition={{ duration: 0.8, delay: 0.15 }}
-              className="text-white/85"
-              aria-hidden
+              className="text-white/90"
             >
               <ScrollCue gradId={gradId} filtId={filtId} />
             </motion.div>
-          </motion.div>
-        ) : null}
-      </div>
+          </div>
+        </motion.div>
+      ) : null}
     </section>
   );
 }
@@ -202,7 +214,7 @@ function SignatureWordmark({
 
   return (
     <p
-      className="font-script text-4xl text-white sm:text-6xl md:text-7xl"
+      className="w-full text-center font-script text-[clamp(2.75rem,12vw,6.75rem)] leading-[1.08] tracking-tight text-white"
       aria-hidden
     >
       {chars.map((ch, i) => (

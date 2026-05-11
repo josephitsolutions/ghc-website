@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import {
-  GOOGLE_MAPS_API_KEY_FALLBACK,
-} from "@/lib/constants";
+import { useEffect, useMemo } from "react";
+import { GOOGLE_MAPS_API_KEY_FALLBACK } from "@/lib/constants";
 
 const STAR_PATH =
   "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z";
@@ -79,8 +77,10 @@ export function GooglePlacesInsights({
 }: {
   mode: "rating-only" | "rating-and-reviews";
 }) {
-  const apiKey =
-    process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? GOOGLE_MAPS_API_KEY_FALLBACK;
+  const apiKey = useMemo(() => {
+    const fromEnv = (process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "").trim();
+    return fromEnv || GOOGLE_MAPS_API_KEY_FALLBACK;
+  }, []);
 
   useEffect(() => {
     window.initGoogleReviews = () => {

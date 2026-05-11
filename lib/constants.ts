@@ -12,9 +12,12 @@ export const LIVE_REVIEWS_IFRAME_SRC =
 export const GOOGLE_MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3315.903828885217!2d-117.88669952442964!3d33.788981573257274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2568d68ca7625739%3A0xd04917a542604128!2sGlowing%20Home%20Cleaners!5e0!3m2!1sen!2sza!4v1778291023827!5m2!1sen!2sza";
 
-/** Places API script uses this key (legacy site). Prefer NEXT_PUBLIC_GOOGLE_MAPS_API_KEY in env. */
+/**
+ * Browser Maps/Places default. Prefer `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` in env to override.
+ * Keep HTTP referrer restrictions on this key in Google Cloud.
+ */
 export const GOOGLE_MAPS_API_KEY_FALLBACK =
-  "AIzaSyCEjsUdVG2y3FZfihq2OsK0pUEcunIEo50";
+  "AIzaSyBYh4AftUwDqXccic0LJQl-q-R_z1WNyuc";
 
 export const SITE_EMAIL = "info@glowinghomecleaners.com";
 
