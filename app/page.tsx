@@ -62,15 +62,16 @@ export default function HomePage() {
             </Link>
           </div>
         </Reveal>
-        <Reveal delay={0.08}>
-          <div className="glass-panel relative aspect-[4/5] min-h-[240px] w-full overflow-hidden rounded-[2rem] sm:min-h-[280px]">
-            <LightboxImage
-              src="/assets/images/hero-hallway.jpg"
-              alt="Premium hallway cleaning cart"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority
-            />
-          </div>
+        <Reveal
+          delay={0.08}
+          className="flex w-full justify-center lg:justify-end"
+        >
+          <LightboxImage
+            src="/assets/images/hero-hallway.jpg"
+            alt="Premium hallway cleaning cart"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
+          />
         </Reveal>
       </section>
 
@@ -230,14 +231,12 @@ export default function HomePage() {
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {PORTFOLIO_REMOTE.map((img) => (
-            <Reveal key={img.src}>
-              <article className="glass-panel relative aspect-[4/5] overflow-hidden">
-                <LightboxImage
-                  src={img.src}
-                  alt={img.alt}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </article>
+            <Reveal key={img.src} className="flex justify-center">
+              <LightboxImage
+                src={img.src}
+                alt={img.alt}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
             </Reveal>
           ))}
         </div>

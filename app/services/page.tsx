@@ -63,7 +63,7 @@ export default function ServicesPage() {
               >
                 Schedule an appointment
               </Link>
-              <div className="relative aspect-[5/4] overflow-hidden rounded-2xl">
+              <div className="flex w-full justify-center">
                 <LightboxImage
                   src={item.image}
                   alt={item.alt}

@@ -58,30 +58,29 @@ export function ImageLightboxProvider({
             }}
           >
             <motion.div
-              initial={{ scale: 0.96, opacity: 0 }}
+              initial={{ scale: 0.98, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.96, opacity: 0 }}
+              exit={{ scale: 0.98, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="relative max-h-[90vh] max-w-5xl overflow-hidden rounded-3xl bg-black/40 p-2 shadow-2xl ring-1 ring-white/10"
+              className="relative max-h-[90vh] max-w-[min(92vw,1200px)] p-[3px]"
             >
               <button
                 type="button"
-                className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xl text-white backdrop-blur-md transition hover:bg-white/20"
+                className="absolute -right-1 -top-1 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-xl text-ink shadow-md transition hover:bg-white dark:bg-white/20 dark:text-white dark:hover:bg-white/30 sm:right-0 sm:top-0"
                 onClick={close}
                 aria-label="Close expanded image"
               >
                 ×
               </button>
-              <div className="relative h-[min(78vh,820px)] w-[min(92vw,1200px)]">
-                <Image
-                  src={src}
-                  alt={alt || "Expanded photograph"}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1200px) 92vw, 1200px"
-                  unoptimized={src.startsWith("http")}
-                />
-              </div>
+              <Image
+                src={src}
+                alt={alt || "Expanded photograph"}
+                width={2400}
+                height={1600}
+                className="block h-auto max-h-[min(78vh,820px)] w-auto max-w-full object-contain"
+                sizes="(max-width: 1200px) 92vw, 1200px"
+                unoptimized={src.startsWith("http")}
+              />
             </motion.div>
           </motion.div>
         ) : null}
@@ -90,34 +89,40 @@ export function ImageLightboxProvider({
   );
 }
 
+type LightboxImageProps = {
+  src: string;
+  alt: string;
+  className?: string;
+  sizes?: string;
+  priority?: boolean;
+  /** Hint for layout / LCP; image still scales with `object-contain` to true proportions. */
+  intrinsicWidth?: number;
+  intrinsicHeight?: number;
+};
+
+/**
+ * Image only: transparent wrapper, 3px padding on each side, no border or background.
+ * Opens full-size in the site lightbox on click.
+ */
 export function LightboxImage({
   src,
   alt,
   className,
   sizes,
   priority,
-  objectFit = "contain",
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-  sizes?: string;
-  priority?: boolean;
-  /** `contain` shows the full image inside the frame; `cover` fills and may crop. */
-  objectFit?: "contain" | "cover";
-}) {
-  const imgClass =
-    objectFit === "cover"
-      ? "object-cover transition duration-700 ease-luxury group-hover:scale-[1.02]"
-      : "object-contain transition duration-700 ease-luxury group-hover:scale-[1.01]";
-
+  intrinsicWidth = 2400,
+  intrinsicHeight = 1600,
+}: LightboxImageProps) {
   return (
     <button
       type="button"
       className={[
-        "group relative block h-full w-full min-h-0 overflow-hidden rounded-[inherit] bg-black/[0.06] text-left dark:bg-white/[0.06]",
+        "m-0 max-w-full border-0 bg-transparent p-[3px] shadow-none outline-none ring-0",
+        "inline-block align-middle focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2",
         className,
-      ].join(" ")}
+      ]
+        .filter(Boolean)
+        .join(" ")}
       onClick={() =>
         window.dispatchEvent(
           new CustomEvent("ghc:lightbox", { detail: { src, alt } }),
@@ -128,13 +133,13 @@ export function LightboxImage({
       <Image
         src={src}
         alt={alt}
-        fill
-        sizes={sizes}
-        className={imgClass}
+        width={intrinsicWidth}
+        height={intrinsicHeight}
+        sizes={sizes ?? "(max-width: 768px) 100vw, 50vw"}
+        className="block h-auto max-h-[min(90dvh,56rem)] w-auto max-w-full object-contain"
         priority={priority}
         unoptimized={src.startsWith("http")}
       />
-      <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
     </button>
   );
 }

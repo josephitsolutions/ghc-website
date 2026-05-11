@@ -45,7 +45,7 @@ export function SiteFooter() {
             href={JITS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex justify-center pt-1"
+            className="mx-auto inline-block p-[3px] pt-1"
             title="Joseph IT Solutions"
           >
             <Image

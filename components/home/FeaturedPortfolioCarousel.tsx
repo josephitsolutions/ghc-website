@@ -48,7 +48,7 @@ export function FeaturedPortfolioCarousel() {
 
   return (
     <div className="space-y-8">
-      <div className="relative overflow-hidden rounded-[2rem]">
+      <div className="relative overflow-hidden">
         <motion.div
           className="flex"
           animate={{ x: `-${idx * 100}%` }}
@@ -56,19 +56,19 @@ export function FeaturedPortfolioCarousel() {
         >
           {slides.map((slide, slideIdx) => (
             <div key={slideIdx} className="w-full shrink-0">
-              <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
+              <div className="grid gap-6 md:grid-cols-3 md:items-start">
                 {slide.map((img) => (
-                  <article
+                  <div
                     key={img.src}
-                    className="glass-panel relative flex aspect-[4/5] min-h-[200px] w-full overflow-hidden sm:min-h-[240px]"
+                    className="flex min-w-0 justify-center md:justify-center"
                   >
                     <LightboxImage
                       src={img.src}
                       alt={img.alt}
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="min-h-0 flex-1"
+                      className="max-w-full"
                     />
-                  </article>
+                  </div>
                 ))}
               </div>
             </div>

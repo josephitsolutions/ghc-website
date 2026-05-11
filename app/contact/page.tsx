@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { PageHero } from "@/components/layout/PageHero";
+import { LightboxImage } from "@/components/media/ImageLightbox";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
@@ -28,18 +28,12 @@ export default function ContactPage() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.06}>
-          <div className="mx-auto w-fit max-w-full rounded-2xl border border-white/40 bg-white/30 p-[10px] shadow-glass backdrop-blur-md dark:border-white/10 dark:bg-white/[0.06] dark:shadow-glass-dark">
-            <Image
-              src="/assets/images/blinds-clean.jpg"
-              alt="Window blind cleaning"
-              width={2400}
-              height={1600}
-              sizes="(max-width: 768px) 100vw, 896px"
-              className="block h-auto max-h-[min(70vh,52rem)] w-auto max-w-full rounded-xl object-contain"
-              priority={false}
-            />
-          </div>
+        <Reveal delay={0.06} className="flex justify-center">
+          <LightboxImage
+            src="/assets/images/blinds-clean.jpg"
+            alt="Window blind cleaning"
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
         </Reveal>
       </section>
     </>

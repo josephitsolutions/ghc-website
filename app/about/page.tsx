@@ -35,14 +35,12 @@ export default function AboutPage() {
             </p>
           </div>
         </Reveal>
-        <Reveal delay={0.06}>
-          <div className="glass-panel relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-            <LightboxImage
-              src="/assets/images/sanitizer-spray.jpg"
-              alt="Sanitizing surface"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </div>
+        <Reveal delay={0.06} className="flex justify-center lg:justify-end">
+          <LightboxImage
+            src="/assets/images/sanitizer-spray.jpg"
+            alt="Sanitizing surface"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
         </Reveal>
       </section>
 
@@ -74,32 +72,26 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
-          <Reveal>
-            <div className="glass-panel relative aspect-[4/5] overflow-hidden">
-              <LightboxImage
-                src="/assets/images/cleaning-kit.jpg"
-                alt="Cleaning supplies"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
+          <Reveal className="flex justify-center">
+            <LightboxImage
+              src="/assets/images/cleaning-kit.jpg"
+              alt="Cleaning supplies"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </Reveal>
-          <Reveal delay={0.05}>
-            <div className="glass-panel relative aspect-[4/5] overflow-hidden">
-              <LightboxImage
-                src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?auto=format&fit=max&w=1400&q=80"
-                alt="Detailed commercial cleaning"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
+          <Reveal delay={0.05} className="flex justify-center">
+            <LightboxImage
+              src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?auto=format&fit=max&w=1400&q=80"
+              alt="Detailed commercial cleaning"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="glass-panel relative aspect-[4/5] overflow-hidden">
-              <LightboxImage
-                src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=max&w=1400&q=80"
-                alt="Conference room interior"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
+          <Reveal delay={0.1} className="flex justify-center">
+            <LightboxImage
+              src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=max&w=1400&q=80"
+              alt="Conference room interior"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </Reveal>
         </div>
       </section>

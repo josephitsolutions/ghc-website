@@ -38,15 +38,17 @@ export function SiteHeader() {
           href="/"
           className="group inline-flex items-center gap-3 font-serif text-lg tracking-tight text-ink"
         >
-          <span className="relative h-10 w-10 overflow-hidden rounded-full ring-1 ring-black/5 transition-transform duration-500 ease-luxury group-hover:scale-[1.03] dark:ring-white/10">
-            <Image
-              src="/assets/images/logo.png"
-              alt="Glowing Home Cleaners logo"
-              fill
-              sizes="40px"
-              className="object-cover"
-              priority
-            />
+          <span className="inline-block p-[3px]">
+            <span className="relative block h-10 w-10 overflow-hidden rounded-full transition-transform duration-500 ease-luxury group-hover:scale-[1.03]">
+              <Image
+                src="/assets/images/logo.png"
+                alt="Glowing Home Cleaners logo"
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
+            </span>
           </span>
           <span className="hidden font-medium sm:inline">
             Glowing Home Cleaners
