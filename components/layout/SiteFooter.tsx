@@ -7,46 +7,43 @@ export function SiteFooter() {
 
   return (
     <footer className="glass-strip border-t border-emerald-200/35 dark:border-emerald-500/15">
-      <div className="mx-auto flex w-full max-w-site flex-col gap-4 px-5 py-3 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:px-12 lg:py-3 xl:px-16 2xl:px-20">
-        <div className="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-8 lg:gap-12">
-          <div className="min-w-0 shrink">
-            <h3 className="font-serif text-base font-medium text-ink lg:text-lg">
-              Glowing Home Cleaners
-            </h3>
-            <p className="mt-1 max-w-md text-sm leading-relaxed text-ink-muted lg:text-base">
-              Affluent residential and commercial cleaning across Orange County.
-            </p>
-            <p className="mt-2">
-              <a
-                href={`mailto:${SITE_EMAIL}`}
-                className="text-sm text-accent underline-offset-2 hover:underline lg:text-base"
-              >
-                {SITE_EMAIL}
-              </a>
-            </p>
-          </div>
+      <div className="mx-auto grid w-full max-w-site grid-cols-1 gap-8 px-5 py-3 sm:px-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-8 lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_auto] lg:items-start lg:gap-x-8 lg:gap-y-4 xl:gap-x-10 lg:px-12 lg:py-3 xl:px-16 2xl:px-20">
+        <div className="min-w-0 sm:col-span-2 lg:col-span-1">
+          <h3 className="font-serif text-base font-medium text-ink lg:text-lg">
+            Glowing Home Cleaners
+          </h3>
+          <p className="mt-1 max-w-md text-sm leading-relaxed text-ink-muted lg:text-base">
+            Affluent residential and commercial cleaning across Orange County.
+          </p>
+          <p className="mt-2">
+            <a
+              href={`mailto:${SITE_EMAIL}`}
+              className="text-sm text-accent underline-offset-2 hover:underline lg:text-base"
+            >
+              {SITE_EMAIL}
+            </a>
+          </p>
+        </div>
 
-          <div className="flex flex-wrap gap-x-10 gap-y-2 text-sm lg:text-base">
-            <div className="space-y-1">
-              <p className="font-medium text-ink">Concierge</p>
-              <FooterLink href="/request-quote">Request Quote</FooterLink>
-              <FooterLink href="/checklist">Checklist</FooterLink>
-              <FooterLink href="/faq">FAQ</FooterLink>
-              <FooterLink href="/client-login">Client Login</FooterLink>
-            </div>
-            <div className="space-y-1">
-              <p className="font-medium text-ink">Legal</p>
-              <FooterLink href="/privacy">Privacy</FooterLink>
-              <FooterLink href="/terms">Terms</FooterLink>
-            </div>
-          </div>
+        <div className="space-y-1 text-sm lg:text-base">
+          <p className="font-medium text-ink">Concierge</p>
+          <FooterLink href="/request-quote">Request Quote</FooterLink>
+          <FooterLink href="/checklist">Checklist</FooterLink>
+          <FooterLink href="/faq">FAQ</FooterLink>
+          <FooterLink href="/client-login">Client Login</FooterLink>
+        </div>
+
+        <div className="space-y-1 text-sm lg:text-base">
+          <p className="font-medium text-ink">Legal</p>
+          <FooterLink href="/privacy">Privacy</FooterLink>
+          <FooterLink href="/terms">Terms</FooterLink>
         </div>
 
         <a
           href={JITS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-panel flex shrink-0 items-center gap-6 rounded-3xl px-6 py-5 no-underline transition-opacity hover:opacity-95 sm:gap-8 sm:px-8 sm:py-6"
+          className="glass-panel flex w-fit max-w-full shrink-0 items-center gap-6 rounded-3xl px-6 py-5 no-underline transition-opacity hover:opacity-95 sm:col-span-2 sm:mx-auto sm:gap-8 sm:px-8 sm:py-6 lg:col-span-1 lg:mx-0 lg:justify-self-end"
           title="Joseph IT Solutions"
         >
           <div className="min-w-0 text-left leading-snug">
