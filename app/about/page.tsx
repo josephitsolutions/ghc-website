@@ -9,6 +9,27 @@ export const metadata: Metadata = {
     "Learn how Glowing Home Cleaners delivers elite residential and commercial cleaning services in Orange County.",
 };
 
+const PILLARS = [
+  {
+    title: "Residential",
+    body: "Estate homes, family homes, condos, and move-in/move-out projects.",
+    image: "/assets/images/resident.png",
+    alt: "Residential cleaning excellence",
+  },
+  {
+    title: "Commercial",
+    body: "Offices, conference spaces, and customer-facing facilities.",
+    image: "/assets/images/commerce.png",
+    alt: "Commercial cleaning presence",
+  },
+  {
+    title: "Detail-driven",
+    body: "Structured checklists backed by dependable execution.",
+    image: "/assets/images/detail.png",
+    alt: "Detail-driven cleaning standards",
+  },
+] as const;
+
 export default function AboutPage() {
   return (
     <>
@@ -44,55 +65,23 @@ export default function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="mx-auto w-full max-w-site px-5 py-12 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <section className="mx-auto w-full max-w-site px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="grid gap-8 md:grid-cols-3">
-          {[
-            {
-              title: "Residential",
-              body: "Estate homes, family homes, condos, and move-in/move-out projects.",
-            },
-            {
-              title: "Commercial",
-              body: "Offices, conference spaces, and customer-facing facilities.",
-            },
-            {
-              title: "Detail-driven",
-              body: "Structured checklists backed by dependable execution.",
-            },
-          ].map((card, i) => (
+          {PILLARS.map((card, i) => (
             <Reveal key={card.title} delay={i * 0.05}>
-              <article className="glass-panel h-full p-8">
+              <article className="glass-panel flex h-full flex-col p-8">
                 <h3 className="font-serif text-2xl text-ink">{card.title}</h3>
                 <p className="mt-4 text-ink-muted">{card.body}</p>
+                <div className="mt-8 flex flex-1 items-end justify-center">
+                  <LightboxImage
+                    src={card.image}
+                    alt={card.alt}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
               </article>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-site px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="grid gap-8 md:grid-cols-3">
-          <Reveal className="flex justify-center">
-            <LightboxImage
-              src="/assets/images/cleaning-kit.jpg"
-              alt="Cleaning supplies"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </Reveal>
-          <Reveal delay={0.05} className="flex justify-center">
-            <LightboxImage
-              src="https://images.unsplash.com/photo-1669101602108-fa5ba89507ee?auto=format&fit=max&w=1400&q=80"
-              alt="Detailed commercial cleaning"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </Reveal>
-          <Reveal delay={0.1} className="flex justify-center">
-            <LightboxImage
-              src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=max&w=1400&q=80"
-              alt="Conference room interior"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
-          </Reveal>
         </div>
       </section>
     </>
