@@ -29,8 +29,8 @@ function updateStars(rating: number) {
       i < filledCount ? "google-star google-star--filled" : "google-star",
     );
     svg.setAttribute("viewBox", "0 0 24 24");
-    svg.setAttribute("width", "26");
-    svg.setAttribute("height", "26");
+    svg.setAttribute("width", "30");
+    svg.setAttribute("height", "30");
     svg.setAttribute("aria-hidden", "true");
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("fill", "currentColor");
@@ -50,18 +50,18 @@ function renderReviews(place: google.maps.places.PlaceResult) {
       (review) => `
       <article class="glass-panel p-6">
         <h3 class="font-serif text-lg text-ink">${review.author_name ?? "Verified Client"}</h3>
-        <p class="mt-2 text-sm text-ink-muted">Rating: ${review.rating ?? 5}/5</p>
-        <p class="mt-3 text-sm leading-relaxed text-ink-muted">${(review.text ?? "").slice(0, 240)}</p>
+        <p class="mt-2 text-base text-ink-muted">Rating: ${review.rating ?? 5}/5</p>
+        <p class="mt-3 text-base leading-relaxed text-ink-muted">${(review.text ?? "").slice(0, 240)}</p>
       </article>`,
     )
     .join("");
 
   outlet.innerHTML = `
-    <p class="glass-panel p-6 text-sm text-ink-muted">
+    <p class="glass-panel p-6 text-base text-ink-muted">
       Google rating: ${place.rating ?? "N/A"} (${place.user_ratings_total ?? 0} reviews)
     </p>
     <div class="mt-6 grid gap-6 md:grid-cols-3">
-      ${cards || '<p class="glass-panel p-6 text-sm text-ink-muted">No published reviews found.</p>'}
+      ${cards || '<p class="glass-panel p-6 text-base text-ink-muted">No published reviews found.</p>'}
     </div>
   `;
 }
@@ -99,7 +99,7 @@ export function GooglePlacesInsights({
             const outlet = document.getElementById("googleReviews");
             if (outlet) {
               outlet.innerHTML =
-                '<p class="glass-panel p-6 text-sm text-ink-muted">Google reviews are loading. Please check back shortly.</p>';
+                '<p class="glass-panel p-6 text-base text-ink-muted">Google reviews are loading. Please check back shortly.</p>';
             }
             return;
           }
@@ -117,7 +117,7 @@ export function GooglePlacesInsights({
                 const outlet = document.getElementById("googleReviews");
                 if (outlet) {
                   outlet.innerHTML =
-                    '<p class="glass-panel p-6 text-sm text-ink-muted">Google reviews are unavailable right now.</p>';
+                    '<p class="glass-panel p-6 text-base text-ink-muted">Google reviews are unavailable right now.</p>';
                 }
                 return;
               }

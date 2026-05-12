@@ -72,6 +72,37 @@
     @apply rounded-3xl border border-white/40 bg-white/55 shadow-glass backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.06] dark:shadow-glass-dark;
   }
 
+  /** Green-stained glass — stronger contrast vs neutral canvas (trust, services, locations). */
+  .glass-panel-stained {
+    border-radius: 1.5rem;
+    border: 1px solid rgb(167 243 208 / 0.38);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.28),
+      inset 0 -1px 0 rgb(0 0 0 / 0.06),
+      0 14px 44px rgb(15 80 60 / 0.12);
+    backdrop-filter: blur(22px) saturate(1.45);
+    background: linear-gradient(
+      142deg,
+      rgb(255 255 255 / 0.48) 0%,
+      rgb(72 112 106 / 0.26) 38%,
+      rgb(220 252 231 / 0.42) 72%,
+      rgb(236 253 245 / 0.55) 100%
+    );
+  }
+
+  .dark .glass-panel-stained {
+    border-color: rgb(52 211 153 / 0.22);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.08),
+      0 12px 40px rgb(0 0 0 / 0.35);
+    background: linear-gradient(
+      142deg,
+      rgb(8 45 38 / 0.58) 0%,
+      rgb(15 55 48 / 0.48) 45%,
+      rgb(6 30 28 / 0.52) 100%
+    );
+  }
+
   .text-balance-pretty {
     text-wrap: balance;
   }
@@ -87,7 +118,7 @@
   }
 
   .legal-doc p {
-    @apply mt-4 text-sm leading-relaxed text-ink-muted sm:text-base;
+    @apply mt-4 text-base leading-relaxed text-ink-muted sm:text-lg;
   }
 
   .legal-doc ul,
@@ -116,11 +147,11 @@
   }
 
   .checklist-card ul {
-    @apply mt-3 space-y-2 pl-5 text-sm leading-relaxed text-ink-muted sm:text-base;
+    @apply mt-3 space-y-2 pl-5 text-base leading-relaxed text-ink-muted sm:text-lg;
   }
 
   .checklist-card p {
-    @apply mt-4 text-sm leading-relaxed text-ink-muted sm:text-base;
+    @apply mt-4 text-base leading-relaxed text-ink-muted sm:text-lg;
   }
 
   .checklist-card strong {

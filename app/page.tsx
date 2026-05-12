@@ -6,21 +6,6 @@ import { LightboxImage } from "@/components/media/ImageLightbox";
 import { Reveal } from "@/components/motion/Reveal";
 import { GOOGLE_MAPS_EMBED_SRC } from "@/lib/constants";
 
-const PORTFOLIO_REMOTE = [
-  {
-    src: "https://images.unsplash.com/photo-1580256081112-e49377338b7f?auto=format&fit=max&w=1400&q=80",
-    alt: "Cleaner polishing interior",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1758273238594-9a9d6c20eaa2?auto=format&fit=max&w=1400&q=80",
-    alt: "Modern kitchen cleaning setup",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1740657254989-42fe9c3b8cce?auto=format&fit=max&w=1400&q=80",
-    alt: "Luxury interior detail cleaning",
-  },
-];
-
 export default function HomePage() {
   return (
     <>
@@ -29,7 +14,7 @@ export default function HomePage() {
 
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.42em] text-accent">
+          <p className="text-xs uppercase tracking-[0.42em] text-accent sm:text-sm">
             Premium residential + commercial
           </p>
           <h2 className="mt-5 font-serif text-4xl tracking-tight text-ink md:text-5xl">
@@ -79,11 +64,11 @@ export default function HomePage() {
         <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
           <Reveal>
             <article
-              className="glass-panel flex h-full min-h-[260px] flex-col justify-between gap-4 p-8"
+              className="glass-panel-stained flex h-full min-h-[300px] flex-col items-center justify-center gap-8 p-8 text-center"
               id="googleRatingCard"
             >
               <div
-                className="flex gap-1 text-accent"
+                className="flex w-full justify-center gap-1.5 text-accent"
                 id="googleStarsRow"
                 role="img"
                 aria-label="Google rating: 5 out of 5 stars"
@@ -93,8 +78,8 @@ export default function HomePage() {
                     key={i}
                     className="google-star google-star--filled"
                     viewBox="0 0 24 24"
-                    width={26}
-                    height={26}
+                    width={30}
+                    height={30}
                     aria-hidden
                   >
                     <path
@@ -104,29 +89,31 @@ export default function HomePage() {
                   </svg>
                 ))}
               </div>
-              <p className="font-serif text-2xl text-ink">
+              <p className="font-serif text-4xl leading-tight text-ink sm:text-5xl">
                 <span id="googleRatingValue">5.0</span>{" "}
-                <span className="text-base text-ink-muted">from Google</span>
+                <span className="font-serif text-4xl text-ink-muted sm:text-5xl">
+                  from Google
+                </span>
               </p>
-              <p className="text-sm leading-relaxed text-ink-muted">
+              <p className="max-w-sm text-base leading-relaxed text-ink-muted sm:text-lg">
                 Luxury-level quality controls and service consistency — verified
                 where it matters.
               </p>
             </article>
           </Reveal>
           <Reveal delay={0.05}>
-            <article className="glass-panel flex h-full min-h-[260px] flex-col justify-between gap-3 p-8">
+            <article className="glass-panel-stained flex h-full min-h-[300px] flex-col items-center justify-center gap-8 p-8 text-center">
               <p className="font-serif text-4xl text-accent sm:text-5xl">5 min</p>
-              <p className="text-sm leading-relaxed text-ink-muted">
+              <p className="max-w-sm text-base leading-relaxed text-ink-muted sm:text-lg">
                 We respond within five minutes during office hours — scheduling
                 support when you need it.
               </p>
             </article>
           </Reveal>
           <Reveal delay={0.1}>
-            <article className="glass-panel flex h-full min-h-[260px] flex-col justify-between gap-3 p-8">
-              <p className="font-serif text-5xl text-accent">100%</p>
-              <p className="text-sm leading-relaxed text-ink-muted">
+            <article className="glass-panel-stained flex h-full min-h-[300px] flex-col items-center justify-center gap-8 p-8 text-center">
+              <p className="font-serif text-4xl text-accent sm:text-5xl">100%</p>
+              <p className="max-w-sm text-base leading-relaxed text-ink-muted sm:text-lg">
                 Mobile-optimized scheduling, forms, and support pages.
               </p>
             </article>
@@ -139,7 +126,7 @@ export default function HomePage() {
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Featured spaces we serve
           </h2>
-          <p className="mt-4 max-w-2xl text-ink-muted">
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-ink-muted">
             A quiet portfolio of residential polish and commercial presence —
             always photographed with intent.
           </p>
@@ -154,8 +141,9 @@ export default function HomePage() {
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Checklist snapshot
           </h2>
-          <p className="mt-4 max-w-2xl text-ink-muted">
-            Scope clarity before every appointment — tailored tiers with room-by-room discipline.
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-ink-muted">
+            Scope clarity before every appointment — tailored tiers with
+            room-by-room discipline.
           </p>
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -179,14 +167,14 @@ export default function HomePage() {
             <Reveal key={card.title}>
               <article className="glass-panel h-full p-8">
                 <h3 className="font-serif text-2xl text-ink">{card.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">
+                <p className="mt-4 text-base leading-relaxed text-ink-muted sm:text-lg">
                   {card.body}
                 </p>
               </article>
             </Reveal>
           ))}
         </div>
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
           <Link
             href="/checklist"
             className="inline-flex rounded-full border border-ink/10 bg-white/50 px-8 py-3 text-sm font-medium tracking-wide text-ink backdrop-blur-md transition hover:bg-white/80 dark:border-white/10 dark:bg-white/[0.06]"
@@ -201,9 +189,9 @@ export default function HomePage() {
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Google Business Profile
           </h2>
-          <p className="mt-4 max-w-2xl text-ink-muted">
-            Our verified Google listing — map, hours, reviews, and more — in
-            the same experience visitors see on Google Maps.
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-ink-muted">
+            Our verified Google listing — map, hours, reviews, and more — in the
+            same experience visitors see on Google Maps.
           </p>
         </Reveal>
         <Reveal delay={0.06}>
@@ -221,25 +209,6 @@ export default function HomePage() {
             />
           </div>
         </Reveal>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
-        <Reveal>
-          <h2 className="font-serif text-3xl text-ink md:text-4xl">
-            Additional portfolio imagery
-          </h2>
-        </Reveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {PORTFOLIO_REMOTE.map((img) => (
-            <Reveal key={img.src} className="flex justify-center">
-              <LightboxImage
-                src={img.src}
-                alt={img.alt}
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </Reveal>
-          ))}
-        </div>
       </section>
     </>
   );

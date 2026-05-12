@@ -95,7 +95,7 @@ export function QuoteRequestForm() {
       ) : null}
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Full name *
           <input
             name="full_name"
@@ -104,7 +104,7 @@ export function QuoteRequestForm() {
             autoComplete="name"
           />
         </label>
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Email *
           <input
             name="email"
@@ -117,7 +117,7 @@ export function QuoteRequestForm() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Phone
           <input
             name="phone"
@@ -126,7 +126,7 @@ export function QuoteRequestForm() {
             autoComplete="tel"
           />
         </label>
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Property type
           <select
             name="property_type"
@@ -143,7 +143,7 @@ export function QuoteRequestForm() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Service type *
           <input
             name="service_type"
@@ -151,7 +151,7 @@ export function QuoteRequestForm() {
             className="mt-2 w-full rounded-2xl border border-ink/10 bg-white/60 px-4 py-3 text-ink outline-none ring-accent/30 transition focus:ring-2 dark:border-white/10 dark:bg-white/[0.06]"
           />
         </label>
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Square feet
           <input
             name="square_feet"
@@ -162,7 +162,7 @@ export function QuoteRequestForm() {
         </label>
       </div>
 
-      <label className="block text-sm text-ink-muted">
+      <label className="block text-base text-ink-muted">
         Preferred date
         <input
           name="preferred_date"
@@ -171,7 +171,7 @@ export function QuoteRequestForm() {
         />
       </label>
 
-      <label className="block text-sm text-ink-muted">
+      <label className="block text-base text-ink-muted">
         Notes
         <textarea
           name="message"

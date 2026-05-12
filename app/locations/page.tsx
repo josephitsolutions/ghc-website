@@ -23,9 +23,9 @@ export default function LocationsPage() {
       >
         {LOCATIONS.map((loc, i) => (
           <Reveal key={loc.city} delay={(i % 6) * 0.02}>
-            <article className="glass-panel flex h-full flex-col gap-4 p-8">
+            <article className="glass-panel-stained flex h-full flex-col gap-4 p-8">
               <h2 className="font-serif text-2xl text-ink">{loc.city}</h2>
-              <p className="text-sm leading-relaxed text-ink-muted">
+              <p className="text-base leading-relaxed text-ink-muted sm:text-lg">
                 {loc.blurb}
               </p>
             </article>

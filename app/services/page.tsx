@@ -52,7 +52,7 @@ export default function ServicesPage() {
       <section className="mx-auto grid max-w-6xl gap-10 px-4 pb-24 sm:grid-cols-2 sm:px-6 lg:gap-14 lg:px-8">
         {SERVICES.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.04}>
-            <article className="glass-panel flex h-full flex-col gap-6 p-8">
+            <article className="glass-panel-stained flex h-full flex-col gap-6 p-8">
               <div>
                 <h2 className="font-serif text-3xl text-ink">{item.title}</h2>
                 <p className="mt-4 text-ink-muted">{item.body}</p>

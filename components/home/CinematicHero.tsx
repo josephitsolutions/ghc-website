@@ -6,11 +6,11 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 /** Cinematic intro — rotating photography (unchanged sequence). */
 const HERO_SLIDESHOW = [
-  "/assets/images/001.jpg",
-  "/assets/images/002.jpg",
-  "/assets/images/003.jpg",
-  "/assets/images/004.jpg",
-  "/assets/images/005.jpg",
+  "/assets/images/001.png",
+  "/assets/images/002.png",
+  "/assets/images/003.png",
+  "/assets/images/004.png",
+  "/assets/images/005.png",
 ];
 
 const HERO_BG = "/assets/images/herobg.png";
@@ -261,7 +261,7 @@ export function CinematicHero() {
             animate={{ opacity: atScrollApex ? 1 : 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-none fixed bottom-8 left-0 right-0 z-[25] px-4 text-center text-[11px] uppercase tracking-[0.28em] text-white/85 sm:bottom-10 sm:text-xs"
+            className="pointer-events-none fixed bottom-8 left-0 right-0 z-[25] px-4 text-center text-xs uppercase tracking-[0.28em] text-white/85 sm:bottom-10 sm:text-sm"
           >
             Please scroll down for more
           </motion.p>

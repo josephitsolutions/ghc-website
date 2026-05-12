@@ -89,7 +89,7 @@ export function ContactForm() {
       ) : null}
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Name *
           <input
             name="name"
@@ -98,7 +98,7 @@ export function ContactForm() {
             autoComplete="name"
           />
         </label>
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Email *
           <input
             name="email"
@@ -111,7 +111,7 @@ export function ContactForm() {
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Phone
           <input
             name="phone"
@@ -120,7 +120,7 @@ export function ContactForm() {
             autoComplete="tel"
           />
         </label>
-        <label className="block text-sm text-ink-muted">
+        <label className="block text-base text-ink-muted">
           Preferred service
           <select
             name="service"
@@ -136,7 +136,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <label className="block text-sm text-ink-muted">
+      <label className="block text-base text-ink-muted">
         Message *
         <textarea
           name="message"

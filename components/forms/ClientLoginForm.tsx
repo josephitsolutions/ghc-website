@@ -75,7 +75,7 @@ export function ClientLoginForm() {
         </motion.p>
       ) : null}
 
-      <label className="block text-sm text-ink-muted">
+      <label className="block text-base text-ink-muted">
         Email
         <input
           name="email"
@@ -85,7 +85,7 @@ export function ClientLoginForm() {
           className="mt-2 w-full rounded-2xl border border-ink/10 bg-white/60 px-4 py-3 text-ink outline-none ring-accent/30 transition focus:ring-2 dark:border-white/10 dark:bg-white/[0.06]"
         />
       </label>
-      <label className="block text-sm text-ink-muted">
+      <label className="block text-base text-ink-muted">
         Password
         <input
           name="password"
