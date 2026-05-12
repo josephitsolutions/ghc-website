@@ -16,7 +16,7 @@ export default function ClientLoginPage() {
         title="Secure client access."
         lead="Authenticate against the same MySQL-backed portal foundation introduced in the legacy experience — ready for expansion."
       />
-      <section className="mx-auto grid max-w-6xl gap-12 px-4 pb-24 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <section className="mx-auto grid w-full max-w-site gap-12 px-5 pb-24 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <div className="glass-panel p-8 sm:p-10">
             <ClientLoginForm />

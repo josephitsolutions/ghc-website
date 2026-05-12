@@ -12,7 +12,7 @@ export default function HomePage() {
       <GooglePlacesInsights mode="rating-only" />
       <CinematicHero />
 
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <section className="mx-auto grid w-full max-w-site items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.42em] text-accent sm:text-sm">
             Premium residential + commercial
@@ -60,7 +60,7 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 py-12 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="grid gap-6 md:grid-cols-3 md:items-stretch">
           <Reveal>
             <article
@@ -121,7 +121,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 py-16 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Featured spaces we serve
@@ -136,7 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 py-16 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Checklist snapshot
@@ -184,12 +184,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 py-16 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Google Business Profile
           </h2>
-          <p className="mt-4 max-w-6xl text-left text-sm text-ink-muted sm:text-base lg:text-nowrap">
+          <p className="mt-4 w-full max-w-none text-left text-sm text-ink-muted sm:text-base lg:text-nowrap">
             Our verified Google listing — map, hours, reviews, and more — in the
             same experience visitors see on Google Maps.
           </p>

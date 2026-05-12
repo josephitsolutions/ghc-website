@@ -17,7 +17,7 @@ export default function BookingPage() {
         title="Schedule an appointment — quietly, confidently, online."
         lead="Use our live BookingKoala experience below to reserve residential or commercial cleaning with real-time availability."
       />
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <div className="glass-panel overflow-hidden rounded-[2rem] p-3 sm:p-4">
             <BookingKoalaEmbed height={1000} />

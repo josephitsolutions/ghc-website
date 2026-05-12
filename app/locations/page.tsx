@@ -18,7 +18,7 @@ export default function LocationsPage() {
         lead="Premium cleaning across Orange County and neighboring communities — each enclave with its own character, every home treated with the same quiet precision."
       />
       <section
-        className="mx-auto grid max-w-6xl gap-6 px-4 pb-24 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 lg:gap-8 lg:px-8"
+        className="mx-auto grid w-full max-w-site gap-6 px-5 pb-24 sm:grid-cols-2 sm:px-8 lg:grid-cols-3 lg:gap-8 lg:px-12 xl:px-16 2xl:px-20"
         aria-label="Service areas"
       >
         {LOCATIONS.map((loc, i) => (

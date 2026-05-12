@@ -141,7 +141,7 @@ export function CinematicHero() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-canvas/95 dark:via-black/50 dark:to-canvas" />
         </div>
-        <p className="max-w-3xl font-serif text-2xl leading-snug text-white sm:text-3xl md:text-4xl">
+        <p className="max-w-6xl font-serif text-2xl leading-snug text-white sm:text-3xl md:text-4xl">
           {SENTENCES.join(" ")}
         </p>
         <div
@@ -212,11 +212,11 @@ export function CinematicHero() {
       </div>
 
       {phase === "intro" ? (
-        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pb-28 pt-32 text-center sm:pb-32">
+        <div className="relative z-10 mx-auto flex w-full max-w-site flex-col items-center px-5 pb-28 pt-32 text-center sm:px-8 sm:pb-32 lg:px-12 xl:px-16 2xl:px-20">
           <motion.p
             role="status"
             aria-live="polite"
-            className="min-h-[7rem] max-w-3xl font-serif text-2xl leading-snug text-white text-balance-pretty sm:min-h-[6.5rem] sm:text-4xl md:text-5xl"
+            className="min-h-[7rem] max-w-6xl font-serif text-2xl leading-snug text-white text-balance-pretty sm:min-h-[6.5rem] sm:text-4xl md:text-5xl"
             initial={false}
             animate={{ opacity: lineVisible ? 1 : 0, y: lineVisible ? 0 : 14 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}

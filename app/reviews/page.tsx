@@ -19,7 +19,7 @@ export default function ReviewsPage() {
         title="Real feedback from recurring and discerning clients."
         lead="Live BookingKoala testimonials below, complemented by highlights sourced from Google when available."
       />
-      <section className="mx-auto max-w-6xl space-y-16 px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site space-y-16 px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <div className="glass-panel overflow-hidden rounded-[2rem] p-3 sm:p-4">
             <LiveReviewsEmbed height={500} />

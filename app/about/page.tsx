@@ -18,7 +18,7 @@ export default function AboutPage() {
         lead="We support affluent homeowners, executive households, and business operators who expect consistently high standards and polished results."
       />
 
-      <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <section className="mx-auto grid w-full max-w-site items-center gap-12 px-5 py-12 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <div className="space-y-6 text-lg leading-relaxed text-ink-muted">
             <h2 className="font-serif text-3xl text-ink md:text-4xl">
@@ -44,7 +44,7 @@ export default function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 py-12 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="grid gap-8 md:grid-cols-3">
           {[
             {
@@ -70,7 +70,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="grid gap-8 md:grid-cols-3">
           <Reveal className="flex justify-center">
             <LightboxImage

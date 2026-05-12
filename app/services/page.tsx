@@ -49,7 +49,7 @@ export default function ServicesPage() {
         title="Service packages tailored to your property and cadence."
         lead="Select a service track or request a custom scope. Final pricing depends on square footage, condition, and add-ons."
       />
-      <section className="mx-auto grid max-w-6xl gap-10 px-4 pb-24 sm:grid-cols-2 sm:px-6 lg:gap-14 lg:px-8">
+      <section className="mx-auto grid w-full max-w-site gap-10 px-5 pb-24 sm:grid-cols-2 sm:px-8 lg:gap-14 lg:px-12 xl:px-16 2xl:px-20">
         {SERVICES.map((item, index) => (
           <Reveal key={item.title} delay={index * 0.04}>
             <article className="glass-panel-stained flex h-full flex-col gap-6 p-8">

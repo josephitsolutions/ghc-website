@@ -40,6 +40,10 @@ const config: Config = {
       transitionTimingFunction: {
         luxury: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
+      maxWidth: {
+        /** ~1760px cap so wide laptops use horizontal space without ultra-wide runaway lines */
+        site: "min(100%, 110rem)",
+      },
     },
   },
   plugins: [],

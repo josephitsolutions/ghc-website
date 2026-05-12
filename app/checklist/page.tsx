@@ -29,7 +29,7 @@ export default async function ChecklistPage() {
         title="Your service scope in writing before the appointment begins."
         lead="This page outlines each checklist by service type and room category for complete clarity."
       />
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-site px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="grid gap-8 lg:grid-cols-3">
           <Reveal>
             <article className="glass-panel checklist-card p-8">

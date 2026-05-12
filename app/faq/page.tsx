@@ -35,7 +35,7 @@ export default function FaqPage() {
         title="Answers before your appointment."
         lead="Clarity is part of the luxury — a few essentials clients ask before the first visit."
       />
-      <section className="mx-auto grid max-w-5xl gap-6 px-4 pb-24 sm:px-6 lg:px-8">
+      <section className="mx-auto grid w-full max-w-site gap-6 px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         {ITEMS.map((item, i) => (
           <Reveal key={item.q} delay={i * 0.04}>
             <details
