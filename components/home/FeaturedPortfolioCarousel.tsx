@@ -32,6 +32,10 @@ const FEATURED_IMAGES: { src: string; alt: string }[] = [
     alt: "Glass detailing",
   },
   {
+    src: "/assets/images/blinds-clean.jpg",
+    alt: "Window blind cleaning",
+  },
+  {
     src: "https://images.unsplash.com/photo-1580256081112-e49377338b7f?auto=format&fit=max&w=1400&q=80",
     alt: "Cleaner polishing interior",
   },
@@ -51,7 +55,7 @@ function BlurredSide({ item }: { item: { src: string; alt: string } }) {
   const remote = item.src.startsWith("http");
   return (
     <div
-      className="pointer-events-none w-[22%] min-w-0 max-w-[160px] shrink opacity-[0.72] sm:max-w-[200px] md:w-1/5 md:max-w-none"
+      className="pointer-events-none w-[22%] min-w-0 max-w-[160px] shrink opacity-[0.94] sm:max-w-[200px] md:w-1/5 md:max-w-none"
       aria-hidden
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl sm:aspect-[4/3]">
@@ -59,7 +63,7 @@ function BlurredSide({ item }: { item: { src: string; alt: string } }) {
           src={item.src}
           alt=""
           fill
-          className="scale-110 object-cover blur-[11px] brightness-[0.96]"
+          className="scale-[1.03] object-cover blur-[3px] brightness-[1]"
           sizes="24vw"
           unoptimized={remote}
         />

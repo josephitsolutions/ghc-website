@@ -126,7 +126,7 @@ export default function HomePage() {
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Featured spaces we serve
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-ink-muted">
+          <p className="mt-4 max-w-2xl text-pretty text-left text-ink-muted">
             A quiet portfolio of residential polish and commercial presence —
             always photographed with intent.
           </p>
@@ -141,7 +141,7 @@ export default function HomePage() {
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Checklist snapshot
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-ink-muted">
+          <p className="mt-4 max-w-2xl text-pretty text-left text-ink-muted">
             Scope clarity before every appointment — tailored tiers with
             room-by-room discipline.
           </p>
@@ -189,7 +189,7 @@ export default function HomePage() {
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
             Google Business Profile
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-ink-muted">
+          <p className="mt-4 max-w-6xl text-left text-sm text-ink-muted sm:text-base lg:text-nowrap">
             Our verified Google listing — map, hours, reviews, and more — in the
             same experience visitors see on Google Maps.
           </p>

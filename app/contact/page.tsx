@@ -20,7 +20,7 @@ export default function ContactPage() {
       />
       <section className="mx-auto flex max-w-3xl flex-col gap-12 px-4 pb-24 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="glass-panel w-full p-8 sm:p-10">
+          <div className="glass-panel w-full p-6 sm:p-8">
             <h2 className="font-serif text-2xl text-ink">Send a message</h2>
             <div className="mt-8">
               <ContactForm />
@@ -30,8 +30,8 @@ export default function ContactPage() {
 
         <Reveal delay={0.06} className="flex justify-center">
           <LightboxImage
-            src="/assets/images/blinds-clean.jpg"
-            alt="Window blind cleaning"
+            src="/assets/images/office-boardroom.jpg"
+            alt="Commercial boardroom cleaning"
             sizes="(max-width: 768px) 100vw, 896px"
           />
         </Reveal>
