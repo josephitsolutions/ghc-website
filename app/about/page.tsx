@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LightboxImage } from "@/components/media/ImageLightbox";
 import { PageHero } from "@/components/layout/PageHero";
+import { ThumbtackEmbeds } from "@/components/reviews/ThumbtackEmbeds";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
@@ -82,6 +83,21 @@ export default function AboutPage() {
               </article>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-site px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <Reveal>
+          <h2 className="font-serif text-3xl text-ink md:text-4xl">
+            Thumbtack reviews
+          </h2>
+          <p className="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-ink-muted">
+            Live star rating and the latest public review from our Thumbtack
+            profile — sized to fit phones, tablets, and desktops.
+          </p>
+        </Reveal>
+        <div className="mt-10 w-full min-w-0">
+          <ThumbtackEmbeds />
         </div>
       </section>
     </>

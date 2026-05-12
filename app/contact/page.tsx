@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { PageHero } from "@/components/layout/PageHero";
 import { LightboxImage } from "@/components/media/ImageLightbox";
 import { Reveal } from "@/components/motion/Reveal";
+import { GOOGLE_MAPS_EMBED_SRC } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -25,6 +26,29 @@ export default function ContactPage() {
             <div className="mt-8">
               <ContactForm />
             </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.04}>
+          <h2 className="font-serif text-xl text-ink sm:text-2xl">
+            Google Maps
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm text-ink-muted sm:text-base">
+            Our verified listing — half-size map so the page stays easy to scan on
+            any screen.
+          </p>
+          <div className="glass-panel mt-4 w-full max-w-3xl overflow-hidden rounded-[1.5rem] p-2 lg:max-w-[min(100%,36rem)]">
+            <iframe
+              src={GOOGLE_MAPS_EMBED_SRC}
+              width="100%"
+              height={225}
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Glowing Home Cleaners on Google Maps"
+              className="block h-[200px] w-full rounded-[1.15rem] sm:h-[225px]"
+            />
           </div>
         </Reveal>
 

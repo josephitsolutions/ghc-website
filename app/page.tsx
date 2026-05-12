@@ -4,12 +4,11 @@ import { FeaturedPortfolioCarousel } from "@/components/home/FeaturedPortfolioCa
 import { GooglePlacesInsights } from "@/components/google/GooglePlacesInsights";
 import { LightboxImage } from "@/components/media/ImageLightbox";
 import { Reveal } from "@/components/motion/Reveal";
-import { GOOGLE_MAPS_EMBED_SRC } from "@/lib/constants";
 
 export default function HomePage() {
   return (
     <>
-      <GooglePlacesInsights mode="rating-only" />
+      <GooglePlacesInsights mode="rating-and-reviews" />
       <CinematicHero />
 
       <section className="mx-auto grid w-full max-w-site items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12 xl:px-16 2xl:px-20">
@@ -187,26 +186,25 @@ export default function HomePage() {
       <section className="mx-auto w-full max-w-site px-5 py-16 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
           <h2 className="font-serif text-3xl text-ink md:text-4xl">
-            Google Business Profile
+            Google reviews
           </h2>
-          <p className="mt-4 w-full max-w-none text-left text-sm text-ink-muted sm:text-base lg:text-nowrap">
-            Our verified Google listing — map, hours, reviews, and more — in the
-            same experience visitors see on Google Maps.
+          <p className="mt-4 max-w-3xl text-pretty text-left text-base text-ink-muted sm:text-lg">
+            Verified snippets from our Google Business Profile. The map lives on
+            the{" "}
+            <Link href="/contact" className="text-accent underline-offset-4 hover:underline">
+              Contact
+            </Link>{" "}
+            page — here we highlight what clients share publicly on Google.
           </p>
         </Reveal>
         <Reveal delay={0.06}>
-          <div className="glass-panel mt-10 overflow-hidden rounded-[2rem] p-2">
-            <iframe
-              src={GOOGLE_MAPS_EMBED_SRC}
-              width="100%"
-              height={450}
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Glowing Home Cleaners on Google Maps"
-              className="aspect-video min-h-[280px] w-full rounded-[1.6rem] md:aspect-auto md:min-h-[450px]"
-            />
+          <div
+            id="googleReviews"
+            className="mt-10 min-h-[10rem] w-full text-sm text-ink-muted"
+          >
+            <p className="glass-panel p-6 text-base">
+              Loading verified Google reviews…
+            </p>
           </div>
         </Reveal>
       </section>

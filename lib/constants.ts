@@ -21,6 +21,13 @@ export const GOOGLE_MAPS_API_KEY_FALLBACK =
 
 export const SITE_EMAIL = "info@glowinghomecleaners.com";
 
+/** Public Facebook page (footer + social). */
+export const FACEBOOK_URL = "https://www.facebook.com/glowinghomecleaners";
+
+/** Display and tel: link target (footer). */
+export const SITE_PHONE_DISPLAY = "(949) 989-7589";
+export const SITE_PHONE_TEL = "+19499897589";
+
 /** JITS footer logo links only here (requirement). */
 export const JITS_URL = "https://josephitsolutions.co.za";
 

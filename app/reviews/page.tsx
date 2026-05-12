@@ -25,7 +25,11 @@ export default function ReviewsPage() {
             <LiveReviewsEmbed height={500} />
           </div>
         </Reveal>
-        <div id="googleReviews" className="min-h-[120px]" />
+        <div id="googleReviews" className="min-h-[10rem] w-full">
+          <p className="glass-panel p-6 text-base text-ink-muted">
+            Loading verified Google reviews…
+          </p>
+        </div>
       </section>
     </>
   );

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 8px 10px 12px;
+        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+        background: transparent;
+      }
+      .widget {
+        max-width: 100%;
+      }
+      .tt-logo {
+        display: block;
+        height: 22px;
+        width: auto;
+        margin-bottom: 8px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      #tt-dynamic img {
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="widget" id="tt-review-widget-star">
+      <img
+        src="https://cdn.thumbtackstatic.com/fe-assets-web/media/logos/thumbtack/wordmark.svg"
+        alt="Thumbtack"
+        class="tt-logo"
+      />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.thumbtack.com/ca/irvine/house-cleaning/glowing-home-cleaners/service/547673790158577674"
+      >
+        <div>Glowing Home Cleaners</div>
+      </a>
+      <div id="tt-dynamic"></div>
+      <script src="https://www.thumbtack.com/profile/widgets/scripts/?service_pk=547673790158577674&amp;widget_id=review&amp;type=star"></script>
+    </div>
+  </body>
+</html>
