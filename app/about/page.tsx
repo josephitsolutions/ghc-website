@@ -92,8 +92,8 @@ export default function AboutPage() {
             Thumbtack reviews
           </h2>
           <p className="mt-4 max-w-3xl text-pretty text-lg leading-relaxed text-ink-muted">
-            Live star rating and the latest public review from our Thumbtack
-            profile — sized to fit phones, tablets, and desktops.
+            Latest public review from our Thumbtack profile — responsive on
+            phones, tablets, and desktops.
           </p>
         </Reveal>
         <div className="mt-10 w-full min-w-0">

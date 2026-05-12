@@ -28,6 +28,10 @@ export const FACEBOOK_URL = "https://www.facebook.com/glowinghomecleaners";
 export const SITE_PHONE_DISPLAY = "(949) 989-7589";
 export const SITE_PHONE_TEL = "+19499897589";
 
+/** SociableKit Google Reviews embed (replaces custom Places review UI). */
+export const SOCIABLEKIT_GOOGLE_REVIEWS_IFRAME_SRC =
+  "https://widgets.sociablekit.com/google-reviews/iframe/25680892";
+
 /** JITS footer logo links only here (requirement). */
 export const JITS_URL = "https://josephitsolutions.co.za";
 

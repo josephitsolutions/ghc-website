@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { LiveReviewsEmbed } from "@/components/booking/LiveReviewsEmbed";
-import { GooglePlacesInsights } from "@/components/google/GooglePlacesInsights";
 import { PageHero } from "@/components/layout/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
+import { SociableKitGoogleReviews } from "@/components/reviews/SociableKitGoogleReviews";
 
 export const metadata: Metadata = {
   title: "Reviews",
@@ -13,11 +13,10 @@ export const metadata: Metadata = {
 export default function ReviewsPage() {
   return (
     <>
-      <GooglePlacesInsights mode="rating-and-reviews" />
       <PageHero
         eyebrow="Client reviews"
         title="Real feedback from recurring and discerning clients."
-        lead="Live BookingKoala testimonials below, complemented by highlights sourced from Google when available."
+        lead="BookingKoala testimonials below, plus live Google reviews from our public listing."
       />
       <section className="mx-auto w-full max-w-site space-y-16 px-5 pb-24 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <Reveal>
@@ -25,11 +24,9 @@ export default function ReviewsPage() {
             <LiveReviewsEmbed height={500} />
           </div>
         </Reveal>
-        <div id="googleReviews" className="min-h-[10rem] w-full">
-          <p className="glass-panel p-6 text-base text-ink-muted">
-            Loading verified Google reviews…
-          </p>
-        </div>
+        <Reveal delay={0.06}>
+          <SociableKitGoogleReviews />
+        </Reveal>
       </section>
     </>
   );

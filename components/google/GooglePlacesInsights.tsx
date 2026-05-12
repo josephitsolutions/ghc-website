@@ -12,14 +12,6 @@ const PLACE_QUERIES = [
   "Glowing Home Cleaners",
 ] as const;
 
-function escapeHtml(s: string) {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
 function updateStars(rating: number) {
   const row = document.getElementById("googleStarsRow");
   const valEl = document.getElementById("googleRatingValue");
@@ -54,85 +46,41 @@ function updateStars(rating: number) {
   }
 }
 
-function renderReviews(
-  place: google.maps.places.PlaceResult,
-  mode: "rating-only" | "rating-and-reviews",
-) {
-  if (mode !== "rating-and-reviews") return;
-
-  const outlet = document.getElementById("googleReviews");
-  if (!outlet) return;
-
-  const reviews = (place.reviews ?? []).slice(0, 5);
-  const cards = reviews
-    .map(
-      (review) => `
-      <article class="glass-panel p-6">
-        <h3 class="font-serif text-lg text-ink">${escapeHtml(review.author_name ?? "Verified client")}</h3>
-        <p class="mt-2 text-base text-ink-muted">Rating: ${review.rating ?? 5}/5</p>
-        <p class="mt-3 text-base leading-relaxed text-ink-muted">${escapeHtml((review.text ?? "").slice(0, 320))}</p>
-      </article>`,
-    )
-    .join("");
-
-  const summary = escapeHtml(
-    `${place.rating ?? "—"} · ${place.user_ratings_total ?? 0} Google reviews`,
-  );
-
-  outlet.innerHTML = `
-    <p class="glass-panel p-6 text-base text-ink-muted">
-      Google rating summary: <strong class="text-ink">${summary}</strong>
-      <span class="mt-2 block text-sm text-ink-subtle">Google returns at most a handful of review snippets via the Places API — visit our full listing on Google Maps for every review.</span>
-    </p>
-    <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-      ${cards || '<p class="glass-panel p-6 text-base text-ink-muted">No review text returned for this listing yet. Confirm the Places API is enabled for this key and the business has public Google reviews.</p>'}
-    </div>
-  `;
-}
-
 declare global {
   interface Window {
-    initGoogleReviews?: () => void;
+    initGooglePlacesRating?: () => void;
   }
 }
 
-export function GooglePlacesInsights({
-  mode,
-}: {
-  mode: "rating-only" | "rating-and-reviews";
-}) {
+/** Loads Google Places once to sync the home trust-card stars + numeric rating. */
+export function GooglePlacesInsights() {
   const apiKey = useMemo(() => {
     const fromEnv = (process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "").trim();
     return fromEnv || GOOGLE_MAPS_API_KEY_FALLBACK;
   }, []);
 
-  const modeRef = useRef(mode);
-  modeRef.current = mode;
+  const mounted = useRef(true);
 
   useEffect(() => {
+    mounted.current = true;
+
     const run = () => {
-      if (!window.google?.maps?.places) return;
+      if (!mounted.current || !window.google?.maps?.places) return;
 
       const map = new google.maps.Map(document.createElement("div"));
       const places = new google.maps.places.PlacesService(map);
-      const currentMode = modeRef.current;
 
       const tryQuery = (index: number) => {
-        if (index >= PLACE_QUERIES.length) {
-          const outlet = document.getElementById("googleReviews");
-          if (outlet && currentMode === "rating-and-reviews") {
-            outlet.innerHTML =
-              '<p class="glass-panel p-6 text-base text-ink-muted">Could not find this business in Google Places. Check API key restrictions (HTTP referrers), billing, and that <strong class="text-ink">Places API</strong> + <strong class="text-ink">Maps JavaScript API</strong> are enabled for the key.</p>';
-          }
-          return;
-        }
+        if (!mounted.current) return;
+        if (index >= PLACE_QUERIES.length) return;
 
         places.findPlaceFromQuery(
           {
             query: PLACE_QUERIES[index],
-            fields: ["place_id", "name", "geometry"],
+            fields: ["place_id", "name"],
           },
           (results, status) => {
+            if (!mounted.current) return;
             if (
               status !== google.maps.places.PlacesServiceStatus.OK ||
               !results?.[0]?.place_id
@@ -144,26 +92,18 @@ export function GooglePlacesInsights({
             places.getDetails(
               {
                 placeId: results[0].place_id,
-                fields: ["reviews", "rating", "user_ratings_total", "name"],
+                fields: ["rating"],
               },
               (place, detailsStatus) => {
+                if (!mounted.current) return;
                 if (
                   detailsStatus !== google.maps.places.PlacesServiceStatus.OK ||
-                  !place
+                  !place ||
+                  typeof place.rating !== "number"
                 ) {
-                  const outlet = document.getElementById("googleReviews");
-                  if (outlet && currentMode === "rating-and-reviews") {
-                    outlet.innerHTML =
-                      '<p class="glass-panel p-6 text-base text-ink-muted">Google review details are unavailable (Places Details request failed). Verify API access and that this listing has public reviews.</p>';
-                  }
                   return;
                 }
-
-                if (typeof place.rating === "number") {
-                  updateStars(place.rating);
-                }
-
-                renderReviews(place, currentMode);
+                updateStars(place.rating);
               },
             );
           },
@@ -173,13 +113,16 @@ export function GooglePlacesInsights({
       tryQuery(0);
     };
 
-    window.initGoogleReviews = () => {
+    window.initGooglePlacesRating = () => {
       run();
     };
 
     if (window.google?.maps?.places) {
       queueMicrotask(run);
-      return;
+      return () => {
+        mounted.current = false;
+        delete window.initGooglePlacesRating;
+      };
     }
 
     const existing = document.querySelector(
@@ -194,7 +137,9 @@ export function GooglePlacesInsights({
         existing.addEventListener("load", onLoad, { once: true });
       }
       return () => {
+        mounted.current = false;
         existing.removeEventListener("load", onLoad);
+        delete window.initGooglePlacesRating;
       };
     }
 
@@ -203,13 +148,14 @@ export function GooglePlacesInsights({
     script.async = true;
     script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(
       apiKey,
-    )}&libraries=places&callback=initGoogleReviews`;
+    )}&libraries=places&callback=initGooglePlacesRating`;
     document.head.appendChild(script);
 
     return () => {
-      /* keep script in DOM for SPA; callback stays assigned */
+      mounted.current = false;
+      delete window.initGooglePlacesRating;
     };
-  }, [apiKey, mode]);
+  }, [apiKey]);
 
   return null;
 }

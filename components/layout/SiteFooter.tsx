@@ -61,8 +61,9 @@ export function SiteFooter() {
 
   return (
     <footer className="glass-strip border-t border-emerald-200/35 dark:border-emerald-500/15">
-      <div className="mx-auto grid w-full max-w-site grid-cols-1 gap-8 px-5 py-3 sm:px-8 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-8 lg:grid-cols-[auto_minmax(0,1fr)_minmax(0,1fr)_auto] lg:items-start lg:gap-x-8 lg:gap-y-4 xl:gap-x-10 lg:px-12 lg:py-3 xl:px-16 2xl:px-20">
-        <div className="min-w-0 sm:col-span-2 lg:col-span-1">
+      {/* Equal-width columns + uniform gap between all four blocks (desktop). */}
+      <div className="mx-auto grid w-full max-w-site grid-cols-1 gap-x-0 gap-y-10 px-5 py-5 sm:px-8 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-0 lg:px-12 xl:gap-x-12 xl:px-16 2xl:px-20">
+        <div className="min-w-0">
           <h3 className="font-serif text-base font-medium text-ink lg:text-lg">
             Glowing Home Cleaners
           </h3>
@@ -99,7 +100,7 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="space-y-1 text-sm lg:text-base">
+        <div className="min-w-0 space-y-1 text-sm lg:text-base">
           <p className="font-medium text-ink">Concierge</p>
           <FooterLink href="/request-quote">Request Quote</FooterLink>
           <FooterLink href="/checklist">Checklist</FooterLink>
@@ -107,7 +108,7 @@ export function SiteFooter() {
           <FooterLink href="/client-login">Client Login</FooterLink>
         </div>
 
-        <div className="space-y-1 text-sm lg:text-base">
+        <div className="min-w-0 space-y-1 text-sm lg:text-base">
           <p className="font-medium text-ink">Legal</p>
           <FooterLink href="/privacy">Privacy</FooterLink>
           <FooterLink href="/terms">Terms</FooterLink>
@@ -117,10 +118,10 @@ export function SiteFooter() {
           href={JITS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="glass-panel flex w-fit max-w-full shrink-0 items-center gap-6 rounded-3xl px-6 py-5 no-underline transition-opacity hover:opacity-95 sm:col-span-2 sm:mx-auto sm:gap-8 sm:px-8 sm:py-6 lg:col-span-1 lg:mx-0 lg:justify-self-end"
+          className="glass-panel flex w-full max-w-full min-w-0 flex-col items-center justify-center gap-4 rounded-3xl px-4 py-4 no-underline transition-opacity hover:opacity-95 sm:flex-row sm:gap-5 sm:px-5 sm:py-5 lg:flex-col lg:px-4 lg:py-5"
           title="Joseph IT Solutions"
         >
-          <div className="min-w-0 text-left leading-snug">
+          <div className="min-w-0 text-center leading-snug sm:text-left lg:text-center">
             <p className="text-base font-medium text-ink sm:text-lg">
               Like this site?
             </p>
@@ -131,7 +132,7 @@ export function SiteFooter() {
             alt="JL IT — website design"
             width={200}
             height={86}
-            className="h-16 w-auto max-w-[12rem] shrink-0 object-contain opacity-90 sm:h-[4.75rem] sm:max-w-[14rem] lg:h-20 lg:max-w-[16rem]"
+            className="h-14 w-auto max-w-[11rem] shrink-0 object-contain opacity-90 sm:h-16 sm:max-w-[12rem] lg:h-16"
           />
         </a>
       </div>

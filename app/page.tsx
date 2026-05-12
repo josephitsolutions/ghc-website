@@ -4,11 +4,12 @@ import { FeaturedPortfolioCarousel } from "@/components/home/FeaturedPortfolioCa
 import { GooglePlacesInsights } from "@/components/google/GooglePlacesInsights";
 import { LightboxImage } from "@/components/media/ImageLightbox";
 import { Reveal } from "@/components/motion/Reveal";
+import { SociableKitGoogleReviews } from "@/components/reviews/SociableKitGoogleReviews";
 
 export default function HomePage() {
   return (
     <>
-      <GooglePlacesInsights mode="rating-and-reviews" />
+      <GooglePlacesInsights />
       <CinematicHero />
 
       <section className="mx-auto grid w-full max-w-site items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-12 xl:px-16 2xl:px-20">
@@ -189,23 +190,15 @@ export default function HomePage() {
             Google reviews
           </h2>
           <p className="mt-4 max-w-3xl text-pretty text-left text-base text-ink-muted sm:text-lg">
-            Verified snippets from our Google Business Profile. The map lives on
-            the{" "}
+            Live Google reviews from our business profile. The map is on the{" "}
             <Link href="/contact" className="text-accent underline-offset-4 hover:underline">
               Contact
             </Link>{" "}
-            page — here we highlight what clients share publicly on Google.
+            page.
           </p>
         </Reveal>
-        <Reveal delay={0.06}>
-          <div
-            id="googleReviews"
-            className="mt-10 min-h-[10rem] w-full text-sm text-ink-muted"
-          >
-            <p className="glass-panel p-6 text-base">
-              Loading verified Google reviews…
-            </p>
-          </div>
+        <Reveal delay={0.06} className="mt-10 block sm:mt-12">
+          <SociableKitGoogleReviews />
         </Reveal>
       </section>
     </>
